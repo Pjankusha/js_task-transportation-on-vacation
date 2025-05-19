@@ -12,6 +12,10 @@ function calculateRentalCost(days) {
   const SHORT_TERM_DISCOUNT = 20;
   const TOTAL_COSTS = PRICE_PER_DAY * days;
 
+  if (days < 0) {
+    throw new Error('Number of days cannot be negative');
+  }
+
   if (days >= LONG_TERM) {
     return TOTAL_COSTS - LONG_TERM_DISCOUNT;
   }
